@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Bestie 🎂</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+      position:relative;
+      color:white;
+      padding:20px;
+    }
+
+    /* Floating Glow */
+    .glow{
+      position:absolute;
+      width:300px;
+      height:300px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      filter:blur(90px);
+      animation:float 6s ease-in-out infinite alternate;
+    }
+
+    .glow:nth-child(1){
+      top:-80px;
+      left:-80px;
+      background:#ff4d9d;
+    }
+
+    .glow:nth-child(2){
+      bottom:-80px;
+      right:-80px;
+      background:#7c3aed;
+      animation-delay:2s;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(0px);
+      }
+      to{
+        transform:translateY(40px);
+      }
+    }
+
+    .card{
+      width:100%;
+      max-width:420px;
+      padding:35px 25px;
+      border-radius:28px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.15);
+      text-align:center;
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+      z-index:2;
+      animation:fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .emoji{
+      font-size:70px;
+      animation:bounce 2s infinite;
+    }
+
+    @keyframes bounce{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(-10px);
+      }
+    }
+
+    h1{
+      margin-top:15px;
+      font-size:2.3rem;
+      font-weight:700;
+      background:linear-gradient(to right,#ff8fab,#c084fc);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .bestie{
+      color:#ffd166;
+      font-weight:600;
+      margin-top:5px;
+      font-size:1.1rem;
+    }
+
+    p{
+      margin-top:18px;
+      line-height:1.8;
+      color:#e2e8f0;
+      font-size:0.98rem;
+    }
+
+    .highlight{
+      color:#ffb3c6;
+      font-weight:600;
+    }
+
+    button{
+      margin-top:28px;
+      padding:14px 28px;
+      border:none;
+      border-radius:50px;
+      background:linear-gradient(135deg,#ff4d9d,#7c3aed);
+      color:white;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 5px 20px rgba(255,77,157,0.4);
+    }
+
+    button:hover{
+      transform:scale(1.05);
+    }
+
+    .footer{
+      margin-top:20px;
+      font-size:0.9rem;
+      color:#cbd5e1;
+    }
+
+    @media(max-width:500px){
+      h1{
+        font-size:1.9rem;
+      }
+
+      .emoji{
+        font-size:60px;
+      }
+
+      p{
+        font-size:0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow"></div>
+  <div class="glow"></div>
+
+  <div class="card">
+    <div class="emoji">🎂✨</div>
+
+    <h1>Happy Birthday</h1>
+
+    <div class="bestie">To My Amazing Bestie 💖</div>
+
+    <p>
+      Wishing you endless happiness, success, laughter, and beautiful memories.
+      Thank you for always being there and making life brighter.
+      You truly are a <span class="highlight">once in a lifetime friend</span> 🌙✨
+    </p>
+
+    <p>
+      May this year bring you new adventures, peace, love, and everything your heart desires.
+      Stay happy, stay crazy, and never stop shining 🌸
+    </p>
+
+    <button onclick="celebrate()">Celebrate 🎉</button>
+
+    <div class="footer">
+      Made with ❤️ for Bestie
+    </div>
+  </div>
+
+  <script>
+    // Auto Confetti on Load
+    window.onload = () => {
+      celebrate();
+    };
+
+    function celebrate(){
+      confetti({
+        particleCount: 180,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+
+      // Side blasts
+      confetti({
+        particleCount: 80,
+        angle: 60,
+        spread: 80,
+        origin: { x: 0 }
+      });
+
+      confetti({
+        particleCount: 80,
+        angle: 120,
+        spread: 80,
+        origin: { x: 1 }
+      });
+    }
+  </script>
+
+</body>
+</html> 
